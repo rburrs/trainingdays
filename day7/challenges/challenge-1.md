@@ -132,40 +132,18 @@ serviceaccount/admin-user created
 clusterrolebinding.rbac.authorization.k8s.io/admin-user created
 ```
 
-We need to discover the created users secret access token, to gain access to the dashboard:
+We need to create an access token for the admin-user ServiceAccount
 
 ```shell
-$ kubectl -n kubernetes-dashboard get secret
-NAME                               TYPE                                  DATA   AGE
-admin-user-token-22554             kubernetes.io/service-account-token   3      32s
-default-token-8fjcr                kubernetes.io/service-account-token   3      76s
-kubernetes-dashboard-certs         Opaque                                0      76s
-kubernetes-dashboard-csrf          Opaque                                1      76s
-kubernetes-dashboard-key-holder    Opaque                                2      75s
-kubernetes-dashboard-token-zmvj4   kubernetes.io/service-account-token   3      76s
-```
-
-Find the secret that belongs to the `admin-user-token` and use `kubectl describe` to see the content of the secret:
-
-```shell
-$ kubectl -n kubernetes-dashboard describe secret admin-user-token-smw2j
-Name:         admin-user-token-22554
-Namespace:    kubernetes-dashboard
-Labels:       <none>
-Annotations:  kubernetes.io/service-account.name: admin-user
-              kubernetes.io/service-account.uid: 02a8e2e7-c25d-48a2-b8b8-f6ce99e77a5d
-
-Type:  kubernetes.io/service-account-token
-
-Data
-====
-ca.crt:     1765 bytes
-namespace:  20 bytes
-token:      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+$ kubectl create token -n kubernetes-dashboard admin-user
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ::: warning
-⚠️ Watch out! You token will have a different random 5 character suffix.
+⚠️ Watch out! Your token will have a different encoded output.
 :::
 
 Copy the token to your clipboard for the next step.
