@@ -22,8 +22,8 @@ To have a clean overview of what is being provisioned under the hood, we create 
 group and and create our Kubernetes cluster within it:
 
 ```shell
-az group create --name adc-aks-rg --location westeurope
-az aks create --resource-group adc-aks-rg --name adc-cluster --enable-managed-identity --generate-ssh-keys --kubernetes-version 1.22.6
+az group create --name adc-aks-rg --location <location>
+az aks create --resource-group adc-aks-rg --name adc-cluster --enable-managed-identity --generate-ssh-keys 
 ```
 
 Let's inspect the created resources:
@@ -31,7 +31,7 @@ Let's inspect the created resources:
 ![Created resource groups](./images/rg-created.png)
 
 The `az aks create` command created a second resource group named
-`MC_adc-aks-rg_adc-cluster_westeurope` containing all resources provisioned for our AKS
+`MC_adc-aks-rg_adc-cluster_yourlocation` containing all resources provisioned for our AKS
 cluster:
 
 ![Resource group with AKS resource](./images/cluster-rg.png)
