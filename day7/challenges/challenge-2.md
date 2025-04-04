@@ -48,6 +48,12 @@ docker run -d -p 8080:80 test:1.0
 
 Open your browser and navigate to <http://localhost:8080>. You should see a page with a welcome message.
 
+Run the following commands to delete the container:
+
+```shell
+docker stop <containerid>
+docker rm <containerid>
+
 Now let's push the image to our registry. To be able to interact with our registry, we first need to login.
 
 ```shell
