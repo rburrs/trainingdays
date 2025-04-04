@@ -43,7 +43,7 @@ Run the following commands to build and run the container:
 
 ```shell
 docker build -t test:1.0 .
-docker run -p 8080:80 test:1.0
+docker run -d -p 8080:80 test:1.0
 ```
 
 Open your browser and navigate to <http://localhost:8080>. You should see a page with a welcome message.
