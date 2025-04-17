@@ -945,7 +945,7 @@ You can watch the status by running 'kubectl --namespace ingress get services -o
 [...]
 ```
 
-After the controller has been installed, check the correspondig service:
+After the controller has been installed, check the corresponding service:
 
 ```shell
 
@@ -967,7 +967,7 @@ You can test the setup, by opening a browser and navigating to that URL...you sh
 
 The IP adress of the ingress controller will be the _only one_ exposed in our cluster now.
 
-Therefore, we can get rid of the one created in the previuos chapter. To have a clean environment, let's also remove the `NodePort` service:
+Therefore, we can get rid of the one created in the previous chapter. To have a clean environment, let's also remove the `NodePort` service:
 
 ```shell
 # this one will take some time, because Kubernetes needs to delete the public IP at the Azure Loadbalancer
