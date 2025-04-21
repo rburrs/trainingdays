@@ -328,7 +328,7 @@ mssql-deployment-5559884974-q2j4w   1/1     Running   0          4m44s   10.244.
 
 The address may vary in your environment, for the sample here, it's `10.244.0.5`. Please note the address down, as you will need it in the next step.
 
-Now, we can deploy an CRUD API that is able to manage `Contacts` objects i.e. that can create/read/update/delete contacts of a CRM app.
+Now, we can deploy a CRUD API that is able to manage `Contacts` objects i.e. that can create/read/update/delete contacts of a CRM app.
 
 The image needs to be built upfront and put in your container registry. Go to the folder `day7/apps/dotnetcore/Scm` and build the API image:
 
