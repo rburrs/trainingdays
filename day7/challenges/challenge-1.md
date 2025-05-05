@@ -22,8 +22,8 @@ To have a clean overview of what is being provisioned under the hood, we create 
 group and and create our Kubernetes cluster within it:
 
 ```shell
-az group create --name adc-aks-rg --location <location>
-az aks create --resource-group adc-aks-rg --name adc-cluster --enable-managed-identity --generate-ssh-keys 
+az group create --name adc-aks-rg-<lastname> --location <location>
+az aks create --resource-group adc-aks-rg-<lastname> --name adc-cluster-<lastname> --enable-managed-identity --generate-ssh-keys 
 ```
 
 Let's inspect the created resources:
