@@ -22,8 +22,9 @@ To have a clean overview of what is being provisioned under the hood, we create 
 group and and create our Kubernetes cluster within it:
 
 ```shell
-az group create --name adc-aks-rg-<lastname> --location <location>
-az aks create --resource-group adc-aks-rg-<lastname> --name adc-cluster-<lastname> --enable-managed-identity --generate-ssh-keys 
+$rnd = get-random
+az group create --name adc-aks-rg-$rnd --location <location>
+az aks create --resource-group <RG_NAME> --name adc-cluster$rnd --enable-managed-identity --generate-ssh-keys 
 ```
 
 Let's inspect the created resources:
@@ -55,11 +56,11 @@ To obtain these access credentials for our newly created cluster we
 use the `az aks get-credentials` command:
 
 ```shell
-$ az aks get-credentials --resource-group adc-aks-rg --name adc-cluster
+$ az aks get-credentials --resource-group <RG_NAME> --name <AKS_NAME>
 Merged "adc-cluster" as current context in /home/waltken/.kube/config
 
-$ Set-Alias -Name k -Value kubectl # create an alias for kubectl
-$ kubectl version # check client and server version of kubernetes
+$ Set-Alias -Name k -Value kubectl   # create an alias for kubectl
+$ kubectl version   # check client and server version of kubernetes
 Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-14T18:56:46Z", GoVersion:"go1.15.6", Compiler:"gc", Platform:"linux/amd64"}
 Server Version: version.Info{Major:"1", Minor:"19", GitVersion:"v1.19.7", GitCommit:"14f897abdc7b57f0850da68bd5959c9ee14ce2fe", GitTreeState:"clean", BuildDate:"2021-01-22T17:29:38Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
 ```
