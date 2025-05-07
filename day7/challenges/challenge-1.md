@@ -58,6 +58,7 @@ use the `az aks get-credentials` command:
 $ az aks get-credentials --resource-group adc-aks-rg --name adc-cluster
 Merged "adc-cluster" as current context in /home/waltken/.kube/config
 
+$ Set-Alias -Name k -Value kubectl # create an alias for kubectl
 $ kubectl version # check client and server version of kubernetes
 Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.2", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-14T18:56:46Z", GoVersion:"go1.15.6", Compiler:"gc", Platform:"linux/amd64"}
 Server Version: version.Info{Major:"1", Minor:"19", GitVersion:"v1.19.7", GitCommit:"14f897abdc7b57f0850da68bd5959c9ee14ce2fe", GitTreeState:"clean", BuildDate:"2021-01-22T17:29:38Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
