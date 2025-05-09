@@ -27,7 +27,7 @@ In order to be able to store the custom Docker images you will be creating throu
 Let's create one via the Azure CLI:
 
 ```shell
-$ az acr create --name adcacr$rg --resource-group <AKS_RG> --sku basic --admin-enabled
+$ az acr create --name adcacr$rnd --resource-group <AKS_RG> --sku basic --admin-enabled
 
 # now let's attach the container registry to the cluster
 
